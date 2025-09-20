@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block start %}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.ok{
+    color: white;
+    text-decoration: none;
+  }
+  .ok:hover{
+    color: white;
+    text-decoration: none;
+  }
+ 
+</style>
+<div class="container mt-5 col-6">
+  <form method="post" class="card p-4 shadow-lg">
+    {% csrf_token %}
+    <h4>Update Recipe</h4>
+    <hr>
+
+    <div class="form-group">
+      <label>Day-Time</label>
+      <input type="text" name="day" class="form-control" value="{{ recipe.Day }}" required>
+    </div>
+
+    <div class="form-group">
+      <label>Recipe Name</label>
+      <input type="text" name="name" class="form-control" value="{{ recipe.Name }}" required>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description" rows="5" class="form-control" required>{{ recipe.Description }}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <br>
+    <a href="/" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

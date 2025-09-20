@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <h3>Welcome to {{name}}!!</h3>
+        <br>
+        <br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for fm in form %}
+            {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+            {% endfor %}
+            <input type="submit" value="Save" class="btn btn-dark">
+        </form>
+
+{% endblock content %}

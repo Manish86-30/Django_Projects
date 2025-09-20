@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} {{post.Title}} {% endblock title %}
+
+        {% block content %}
+       <h2>Article Details</h2>
+       <br>
+       <h3>{{post.Title}}</h3>
+       <h6>By :- {{post.Author}} :- {{post.Post_Date}} :- 
+        {% if user.is_authenticated %}
+        <a href="{% url 'update' post.pk %}">Edit</a></h6>
+        {% endif %}
+       <hr>
+       <h3>{{post.Body}}</h3>
+       <br>
+       <a href="/" class="btn btn-primary">Home</a>
+       {% endblock content %}

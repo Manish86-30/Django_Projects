@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Logout {% endblock title %}
+
+
+{% block content %}
+
+<div class="form-group">
+
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">logout</button>
+</form>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Show Data</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Welcome To The Data</h1>
+        {% if user.is_authenticated %}
+        <h2>First_Name: {{ user.first_name }}</h2> 
+        <h2>Last_Name: {{ user.last_name }}!</h2>
+        <h2>Email: {{ user.email }}</h2>
+        {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+        <br>
+        <button><a href="{% url 'logout' %}">Logout</a></button>
+        <script src="" async defer></script>
+    </body>
+</html>

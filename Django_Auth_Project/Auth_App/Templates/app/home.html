@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Show Data</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Welcome To The Employee Data</h1>
+      
+        <table border='1'>
+            <tr>
+                <th>ID</th>
+                <th>First_Name</th>
+                <th>Last_Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Pincode</th>
+            </tr>
+            <tr>
+                <td>{{request.session.id}}</td>
+                <td>{{request.session.First_Name}}</td>
+                <td>{{request.session.Last_Name}}</td>
+                <td>{{request.session.Email}}</td>
+                <td>{{request.session.Mobile}}</td>
+                <td>{{request.session.Address}}</td>
+                <td>{{request.session.City}}</td>
+                <td>{{request.session.State}}</td>
+                <td>{{request.session.Pincode}}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <button><a href="{% url 'logout' %}">Logout</a></button>
+        <div class="text">
+            <h3>Forgot Password? <a href="{% url 'change' %}">Reset</a></h3>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>

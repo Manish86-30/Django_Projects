@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+    <div class="list-group">
+        <a href="{% url 'mobile' %}" class="list-group-item list-group-item-action" aria-current="true">ALl Mobiles</a>
+        <a href="{% url 'mobiledata' 'Redmi' %}" class="list-group-item list-group-item-action">Redmi</a>
+        <a href="{% url 'mobiledata' 'Samsung' %}" class="list-group-item list-group-item-action">Samsung</a>
+        <a href="{% url 'mobiledata' 'Apple' %}" class="list-group-item list-group-item-action">Apple</a>
+        <a href="{% url 'mobiledata' 'Xiaomi' %}" class="list-group-item list-group-item-action">Xiaomi</a>
+        <a href="{% url 'mobiledata' 'below' %}" class="list-group-item list-group-item-action">Price: Low to High</a>
+        <a href="{% url 'mobiledata' 'above' %}" class="list-group-item list-group-item-action">Price: High to Low</a>
+    </div>
+  </div>
+  <div class="col-sm-8 offset-sm-1">
+    <div class="row">
+        {% for product in mobile %}
+        <div class="col-sm-4">
+          <div class="card">
+            <img src="{{ product.profile_image.url }}" class="card-img-top" alt="{{ product.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.discounted_price }}</h5>
+              <p class="card-text">Price: {{ product.selling_price }}</p>
+              <a href="{% url 'product-detail' product.pk %}" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

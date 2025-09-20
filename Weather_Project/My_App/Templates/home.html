@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<body class="bg-light">
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🌤️ Weather App</h2>
+    <form method="get">
+        <div class="input-group mb-3">
+            <input type="text" name="city" class="form-control" placeholder="Enter city name" required>
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    {% if weather_data.error %}
+        <div class="alert alert-danger">{{ weather_data.error }}</div>
+    {% elif weather_data.city %}
+        <div class="card p-3 shadow">
+            <h3>{{ weather_data.city|title }}</h3>
+            <p><strong>Temperature:</strong> {{ weather_data.temperature }}°C</p>
+            <p><strong>Description:</strong> {{ weather_data.description }}</p>
+            <p><strong>Humidity:</strong> {{ weather_data.humidity }}%</p>
+            <p><strong>Wind:</strong> {{ weather_data.wind }} m/s</p>
+            <p><strong>Feels_like:</strong> {{ weather_data.feels_like }} m/s</p>
+            <p><strong>Pressure:</strong> {{ weather_data.pressure }} m/s</p>
+            <p><strong>Clouds:</strong> {{ weather_data.clouds }} m/s</p>
+            <figure class="image is-300x300">
+                <img src="http://openweathermap.org/img/w/{{ weather_data.icon }}.png" alt="image">
+            </figure>
+            
+        </div>
+    {% endif %}
+</div>
+
+{% endblock content %}
